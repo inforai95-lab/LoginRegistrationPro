@@ -7,9 +7,23 @@
 
     <p>You have successfully logged in.</p>
 
+    <hr />
+
+    <h4>Employee Management</h4>
+
+    <p>Manage employee records from the page below.</p>
+
+    <a asp-controller="Employee"
+       asp-action="Index"
+       class="btn btn-primary">
+        Employee Details 
+    </a>
+
     <form asp-controller="Account"
           asp-action="Logout"
-          method="post">
+          method="post"
+          class="mt-4">
+
         @Html.AntiForgeryToken()
 
         <button type="submit" class="btn btn-danger">

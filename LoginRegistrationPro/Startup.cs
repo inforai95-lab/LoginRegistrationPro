@@ -58,9 +58,11 @@ namespace LoginRegistrationPro
             {
                 options.LoginPath = "/Account/Login";
                 options.AccessDeniedPath = "/Account/AccessDenied";
+               
             });
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
         }
 
@@ -83,6 +85,7 @@ namespace LoginRegistrationPro
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {

@@ -12,5 +12,6 @@ namespace LoginRegistrationApp.Data
             : base(options)
         {
         }
+        public DbSet<Employee> Employees { get; set; }
     }
 }

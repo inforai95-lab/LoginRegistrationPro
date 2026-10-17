@@ -35,8 +35,10 @@ namespace LoginRegistrationApp.Controllers
 
             if (result.Succeeded)
             {
-                return RedirectToAction(nameof(Login));
+                return RedirectToAction(nameof(Login));             
+
             }
+
 
             foreach (var error in result.Errors)
             {
@@ -77,7 +79,8 @@ namespace LoginRegistrationApp.Controllers
                     return Redirect(returnUrl);
                 }
 
-                return RedirectToAction(nameof(Dashboard));
+
+                return RedirectToAction("Index", "Employee");
             }
 
             if (result.IsLockedOut)
@@ -94,6 +97,7 @@ namespace LoginRegistrationApp.Controllers
             }
 
             return View(model);
+
         }
 
         [Authorize]
@@ -105,7 +109,7 @@ namespace LoginRegistrationApp.Controllers
 
             ViewBag.FullName = user?.FullName;
 
-            return View();
+            return RedirectToAction("Index", "Employee");
         }
 
         [Authorize]
