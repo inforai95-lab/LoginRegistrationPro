@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-5">
+    <h2>Welcome, @ViewBag.FullName!</h2>
+
+    <p>You have successfully logged in.</p>
+
+    <form asp-controller="Account"
+          asp-action="Logout"
+          method="post">
+        @Html.AntiForgeryToken()
+
+        <button type="submit" class="btn btn-danger">
+            Logout
+        </button>
+    </form>
+</div>
